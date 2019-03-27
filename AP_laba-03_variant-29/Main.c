@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <stdlib.h>
 
 #define MAX 100
@@ -58,16 +58,16 @@ int menu_select(void)
 {
 	char s[80];
 	int c;
-	printf("--Меню--\n");
-	printf("1. Додати запис\n");
-	printf("2. Видалити запис\n");
-	printf("3. Вивести всі записи\n");
-	printf("4. Відсортувати \n");
-	printf("5. вивести 2 максимальні\n");;
-	printf("6. Очистити екран\n");
-	printf("0. Завершити роботу з програмою\n\n");
+	printf("--РњРµРЅСЋ--\n");
+	printf("1. Р”РѕРґР°С‚Рё Р·Р°РїРёСЃ\n");
+	printf("2. Р’РёРґР°Р»РёС‚Рё Р·Р°РїРёСЃ\n");
+	printf("3. Р’РёРІРµСЃС‚Рё РІСЃС– Р·Р°РїРёСЃРё\n");
+	printf("4. Р’С–РґСЃРѕСЂС‚СѓРІР°С‚Рё \n");
+	printf("5. РІРёРІРµСЃС‚Рё 2 РјР°РєСЃРёРјР°Р»СЊРЅС–\n");;
+	printf("6. РћС‡РёСЃС‚РёС‚Рё РµРєСЂР°РЅ\n");
+	printf("0. Р—Р°РІРµСЂС€РёС‚Рё СЂРѕР±РѕС‚Сѓ Р· РїСЂРѕРіСЂР°РјРѕСЋ\n\n");
 	do {
-		printf("\n Введіть номер потрібного пункту: ");
+		printf("\n Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ РїРѕС‚СЂС–Р±РЅРѕРіРѕ РїСѓРЅРєС‚Сѓ: ");
 		gets(s);
 		c = atoi(s);
 	} while (c < -1 || c>8);
@@ -82,14 +82,14 @@ void enter(void)
 
 	slot = find_free();
 	if (slot == -1) {
-		printf("\n Список заповнений");
+		printf("\n РЎРїРёСЃРѕРє Р·Р°РїРѕРІРЅРµРЅРёР№");
 		return;
 	}
 
-	printf("Введіть ім'я: ");
+	printf("Р’РІРµРґС–С‚СЊ С–Рј'СЏ: ");
 	gets(student[slot].name);
 
-	printf("Введіть бал: ");
+	printf("Р’РІРµРґС–С‚СЊ Р±Р°Р»: ");
 	gets(s);
 	student[slot].rating = strtoul(s, '\0', 10);
 
@@ -105,7 +105,7 @@ void delete(void) {
 	register int slot;
 	char s[80];
 
-	printf("Введіть номер запису: ");
+	printf("Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ Р·Р°РїРёСЃСѓ: ");
 	gets(s);
 	slot = atoi(s);
 	if (slot >= 0 && slot < MAX)
@@ -136,11 +136,11 @@ void TwoMax(addr_list items[])
 		}
 	}
 	puts("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
-	printf("Ім'я %s\n", student[first_i].name);
-	printf("Рейтинговий бал %lf\n", student[first_i].rating);
+	printf("Р†Рј'СЏ %s\n", student[first_i].name);
+	printf("Р РµР№С‚РёРЅРіРѕРІРёР№ Р±Р°Р» %lf\n", student[first_i].rating);
 	puts("---------------------------------------------------");
-	printf("Ім'я %s\n", student[second_i].name);
-	printf("Рейтинговий бал %lf\n", student[second_i].rating);
+	printf("Р†Рј'СЏ %s\n", student[second_i].name);
+	printf("Р РµР№С‚РёРЅРіРѕРІРёР№ Р±Р°Р» %lf\n", student[second_i].rating);
 	puts("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
 
 }
@@ -177,12 +177,12 @@ void list(void) {
 	for (t = 0; t < MAX; ++t) {
 		if (student[t].name[0]) {
 			if (t == 0)
-				printf("---|Початок потоку данх|---\n");
-			printf("Ім'я %s\n", student[t].name);
-			printf("Рейтинговий бал %lf\n", student[t].rating);
+				printf("---|РџРѕС‡Р°С‚РѕРє РїРѕС‚РѕРєСѓ РґР°РЅС…|---\n");
+			printf("Р†Рј'СЏ %s\n", student[t].name);
+			printf("Р РµР№С‚РёРЅРіРѕРІРёР№ Р±Р°Р» %lf\n", student[t].rating);
 			printf("\n");
 		}
 	}
-	printf("---|Кінець потоку данх|---\n");
+	printf("---|РљС–РЅРµС†СЊ РїРѕС‚РѕРєСѓ РґР°РЅС…|---\n");
 	printf("\n\n");
 }
